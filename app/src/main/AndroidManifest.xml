@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.nbp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".RankActivity"></activity>
+        <activity android:name=".Currencies.RubRussiaActivity" />
+        <activity android:name=".Currencies.TryTurkeyActivity" />
+        <activity android:name=".Currencies.BgnBulgariaActivity" />
+        <activity android:name=".Currencies.RonRomaniaActivity" />
+        <activity android:name=".Currencies.HrkCroatiaActivity" />
+        <activity android:name=".Currencies.SekSwedenActivity" />
+        <activity android:name=".Currencies.NokNorwayActivity" />
+        <activity android:name=".Currencies.IskIcelandActivity" />
+        <activity android:name=".Currencies.DkkDenmarkActivity" />
+        <activity android:name=".Currencies.CzkCechRepublicActivity" />
+        <activity android:name=".Currencies.UahUkraineActivity" />
+        <activity android:name=".Currencies.GbpGreatBritainActivity" />
+        <activity android:name=".Currencies.ChfSwitzerlandActivity" />
+        <activity android:name=".Currencies.HufHungaryActivity" />
+        <activity android:name=".Currencies.EurEuropeActivity" />
+        <activity android:name=".Currencies.SgdSingaporeActivity" />
+        <activity android:name=".Currencies.NzdNewZelandActivity" />
+        <activity android:name=".Currencies.CadCanadaActivity" />
+        <activity android:name=".Currencies.HkdHongkongActivity" />
+        <activity android:name=".Currencies.AudAustraliaActivity" />
+        <activity android:name=".Currencies.UsdAmericaActivity" />
+        <activity android:name=".Currencies.ThbThailandActivity" />
+        <activity android:name=".CurrencyRatesActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
