@@ -3,9 +3,6 @@ package com.example.nbp;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
-
-import com.example.nbp.Database.DatabaseHelper;
 import com.example.nbp.fragments.Fragment_Currency;
 import com.example.nbp.fragments.Fragment_Gold;
 import com.google.android.material.tabs.TabLayout;

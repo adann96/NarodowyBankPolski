@@ -1,10 +1,10 @@
 package com.example.nbp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,17 +18,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.nbp.Database.Currency;
-import com.example.nbp.Database.DatabaseHelper;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class RankActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
@@ -48,33 +45,29 @@ public class RankActivity extends AppCompatActivity {
 
         String url = "https://api.nbp.pl/api/exchangerates/tables/A/?format=json";
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(JSONArray response) {
                 progressDialog.dismiss();
                 try {
-                    ArrayList<String> arrayList = new ArrayList<>();
+                    ArrayList<Currency> arrayList = new ArrayList<>();
                     JSONObject obj = response.getJSONObject(0);
                     JSONArray jsonArray = obj.getJSONArray("rates");
-                    DatabaseHelper db = new DatabaseHelper(RankActivity.this);
-                    db.truncateData();
+                    Currency currency = null;
 
                     for (int i = 0; i < 35; i++) {
                         String codeJson = jsonArray.getJSONObject(i).get("code").toString();
                         String currencyJson = jsonArray.getJSONObject(i).get("currency").toString();
                         float midJson = Float.parseFloat(jsonArray.getJSONObject(i).get("mid").toString());
 
-                        Currency currency = new Currency(codeJson,currencyJson,midJson);
-
-                        db.addOne(currency.getCode(), currency.getCurrency(), currency.getMid());
+                        currency = new Currency(codeJson,currencyJson,midJson);
+                        arrayList.add(currency);
                     }
 
-                    Cursor cursor = db.readData();
+                    Collections.sort(arrayList, Comparator.comparing(Currency::getMidJson));
+                    Collections.reverse(arrayList);
 
-                    for (int y = 0; y < arrayList.size(); y++) {
-                        arrayList.add(cursor.getString(1) + " | " + cursor.getString(2)  + " | " +  cursor.getString(3));
-                    }
-
-                    ArrayAdapter arrayAdapter = new ArrayAdapter(RankActivity.this,android.R.layout.simple_list_item_1,arrayList);
+                    ArrayAdapter<Currency> arrayAdapter = new ArrayAdapter(RankActivity.this,android.R.layout.simple_list_item_1,arrayList);
                     listView.setAdapter(arrayAdapter);
                 } catch (JSONException e) {
                     e.printStackTrace();
