@@ -94,8 +94,8 @@ public class EurEuropeActivity extends AppCompatActivity {
 
                     String up = new StringBuilder().appendCodePoint(0xFFEA).toString();
                     String down = new StringBuilder().appendCodePoint(0xFFEC).toString();
-                    float differenceFloat = Math.abs((currRates.get(4).getY()) - (currRates.get(3).getY()));
-                    float differencePercentage = (currRates.get(4).getY()) / (currRates.get(3).getY()) - 1;
+                    double differenceFloat = Math.abs((currRates.get(4).getY()) - (currRates.get(3).getY()));
+                    double differencePercentage = ((1 - currRates.get(4).getY()) / (currRates.get(3).getY()));
 
                     if (differenceFloat > 0 && differencePercentage > 0) {
                         changePercentZl.append(up + " +" + differenceFloat);
@@ -106,10 +106,9 @@ public class EurEuropeActivity extends AppCompatActivity {
                         changePercentEur.append("brak");
                     }
                     else {
-                        changePercentZl.append(down + " -" + Math.round(differenceFloat * 10000)/10000.0);
-                        changePercentEur.append(down + Math.round(differencePercentage * 10000)/10000.0 + "%");
+                        changePercentZl.append(down + " -" + differenceFloat);
+                        changePercentEur.append(down + " " + Math.round(differencePercentage * 10000)/10000.0 + "%");
                     }
-
 
                     BarDataSet barDataSet = new BarDataSet(currRates,"Last 5 days rates");
                     barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);

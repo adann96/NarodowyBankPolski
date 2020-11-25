@@ -22,6 +22,6 @@ public class Currency {
 
     @Override
     public String toString() {
-        return codeJson + '|' + currencyJson + '|' + midJson;
+        return midJson + " | " + codeJson + ": " + currencyJson;
     }
 }

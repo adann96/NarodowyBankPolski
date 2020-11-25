@@ -23,6 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -48,13 +49,12 @@ public class RankActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(JSONArray response) {
-                progressDialog.dismiss();
                 try {
                     ArrayList<Currency> arrayList = new ArrayList<>();
                     JSONObject obj = response.getJSONObject(0);
                     JSONArray jsonArray = obj.getJSONArray("rates");
                     Currency currency = null;
-
+                    
                     for (int i = 0; i < 35; i++) {
                         String codeJson = jsonArray.getJSONObject(i).get("code").toString();
                         String currencyJson = jsonArray.getJSONObject(i).get("currency").toString();
@@ -69,6 +69,7 @@ public class RankActivity extends AppCompatActivity {
 
                     ArrayAdapter<Currency> arrayAdapter = new ArrayAdapter(RankActivity.this,android.R.layout.simple_list_item_1,arrayList);
                     listView.setAdapter(arrayAdapter);
+                    progressDialog.dismiss();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

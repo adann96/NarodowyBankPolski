@@ -96,7 +96,7 @@
 
     <TextView
         android:id="@+id/changePercentEurValue"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
@@ -105,12 +105,13 @@
 
     <TextView
         android:id="@+id/changePercentZlValue"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:layout_marginBottom="14dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/eurBarChart"
         app:layout_constraintStart_toEndOf="@+id/changePercentZl"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentEurValue" />
+        app:layout_constraintTop_toBottomOf="@+id/changePercentEurValue"
+        app:layout_constraintVertical_bias="0.058" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
