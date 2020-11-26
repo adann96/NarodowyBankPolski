@@ -6,14 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".Currencies.UahUkraineActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/ukraine"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="80dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="Hrywna"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/infoUahSymbol"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/infoUahSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Symbol: 1 UAH"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/uahCurrencyRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <TextView
         android:id="@+id/uahCurrencyRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="77dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginStart="32dp"
+        android:text="Kurs: "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentUah"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/infoUahSymbol" />
+
+    <TextView
+        android:id="@+id/changePercentUah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Zmiana: "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uahCurrencyRate" />
+
+    <TextView
+        android:id="@+id/changePercentZl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="14dp"
+        android:text="Zmiana (zł): "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/uahBarChart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changePercentUah" />
+
+    <TextView
+        android:id="@+id/uahCurrencyRateValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentUah"
+        app:layout_constraintStart_toEndOf="@+id/uahCurrencyRate"
+        app:layout_constraintTop_toBottomOf="@+id/infoUahSymbol" />
+
+    <TextView
+        android:id="@+id/changePercentUahValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
+        app:layout_constraintStart_toEndOf="@+id/changePercentUah"
+        app:layout_constraintTop_toBottomOf="@+id/uahCurrencyRateValue" />
+
+    <TextView
+        android:id="@+id/changePercentZlValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/uahBarChart"
+        app:layout_constraintStart_toEndOf="@+id/changePercentZl"
+        app:layout_constraintTop_toBottomOf="@+id/changePercentUahValue"
+        app:layout_constraintVertical_bias="0.058" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/uahBarChart"

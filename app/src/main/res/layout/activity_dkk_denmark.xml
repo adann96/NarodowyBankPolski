@@ -6,14 +6,102 @@
     android:layout_height="match_parent"
     tools:context=".Currencies.DkkDenmarkActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/denmark_flag_wave_icon_256"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="79dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="32dp"
+        android:text="Korona\nDuńska"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/infoDkkSymbol"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/infoDkkSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Symbol: 1 DKK"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dkkDenmarkRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <TextView
         android:id="@+id/dkkDenmarkRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="32dp"
+        android:text="Kurs: "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentdkk"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/infoDkkSymbol" />
+
+    <TextView
+        android:id="@+id/changePercentdkk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Zmiana: "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dkkDenmarkRate" />
+
+    <TextView
+        android:id="@+id/changePercentZl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="Zmiana (zł): "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dkkBarChart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changePercentdkk" />
+
+    <TextView
+        android:id="@+id/dkkCechRepublicRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentdkk"
+        app:layout_constraintStart_toEndOf="@+id/dkkDenmarkRate"
+        app:layout_constraintTop_toBottomOf="@+id/infoDkkSymbol" />
+
+    <TextView
+        android:id="@+id/changePercentdkkValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
+        app:layout_constraintStart_toEndOf="@+id/changePercentdkk"
+        app:layout_constraintTop_toBottomOf="@+id/dkkCechRepublicRate" />
+
+    <TextView
+        android:id="@+id/changePercentZlValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dkkBarChart"
+        app:layout_constraintStart_toEndOf="@+id/changePercentZl"
+        app:layout_constraintTop_toBottomOf="@+id/changePercentdkkValue"
+        app:layout_constraintVertical_bias="0.058" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/dkkBarChart"
