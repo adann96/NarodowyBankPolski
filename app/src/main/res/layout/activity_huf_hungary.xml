@@ -6,14 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".Currencies.HufHungaryActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hungary_flag_wave_icon_256" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="53dp"
+        android:layout_marginBottom="8dp"
+        android:text="Forint"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/infoHufSymbol"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/infoHufSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Symbol: 1 HUF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/hufHungaryRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <TextView
         android:id="@+id/hufHungaryRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="69dp"
+        android:layout_marginStart="32dp"
+        android:text="Kurs: "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentHuf"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/infoHufSymbol" />
+
+    <TextView
+        android:id="@+id/changePercentHuf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Zmiana: "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hufHungaryRate" />
+
+    <TextView
+        android:id="@+id/changePercentZl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="14dp"
+        android:text="Zmiana (zł): "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/hufBarChart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changePercentHuf" />
+
+    <TextView
+        android:id="@+id/hufHungaryRateValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentHuf"
+        app:layout_constraintStart_toEndOf="@+id/hufHungaryRate"
+        app:layout_constraintTop_toBottomOf="@+id/infoHufSymbol" />
+
+    <TextView
+        android:id="@+id/changePercentHufValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
+        app:layout_constraintStart_toEndOf="@+id/changePercentHuf"
+        app:layout_constraintTop_toBottomOf="@+id/hufHungaryRateValue" />
+
+    <TextView
+        android:id="@+id/changePercentZlValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/hufBarChart"
+        app:layout_constraintStart_toEndOf="@+id/changePercentZl"
+        app:layout_constraintTop_toBottomOf="@+id/changePercentHufValue"
+        app:layout_constraintVertical_bias="0.058" />
+
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/hufBarChart"

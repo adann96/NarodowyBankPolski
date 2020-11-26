@@ -9,7 +9,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#00695F"
+        android:background="@drawable/header"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <TextView
@@ -20,7 +20,9 @@
             android:minHeight="?actionBarSize"
             android:padding="@dimen/appbar_padding"
             android:text="@string/app_name"
-            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textColor="#00695F"
+            android:textStyle="bold" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"

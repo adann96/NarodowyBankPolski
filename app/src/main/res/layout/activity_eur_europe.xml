@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Currencies.EurEuropeActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="80dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/germany_flag_wave_icon_256" />
-
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/eurBarChart"
         android:layout_width="350dp"
@@ -28,6 +18,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changePercentZl" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/germany_flag_wave_icon_256" />
 
     <TextView
         android:id="@+id/textView"
