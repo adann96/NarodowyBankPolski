@@ -6,14 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".Currencies.RonRomaniaActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/romania"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Lej\nRumuński"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/infoRonSymbol"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/infoRonSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Symbol: 1 RON"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ronRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/ronRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Kurs: "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentRon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infoRonSymbol" />
+
+    <TextView
+        android:id="@+id/changePercentRon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Zmiana: "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ronRate" />
+
+    <TextView
+        android:id="@+id/changePercentZl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="14dp"
+        android:text="Zmiana (zł): "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ronBarChart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changePercentRon" />
+
     <TextView
         android:id="@+id/ronRomaniaRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="65dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentRon"
+        app:layout_constraintStart_toEndOf="@+id/ronRate"
+        app:layout_constraintTop_toBottomOf="@+id/infoRonSymbol" />
+
+    <TextView
+        android:id="@+id/changePercentRonValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
+        app:layout_constraintStart_toEndOf="@+id/changePercentRon"
+        app:layout_constraintTop_toBottomOf="@+id/ronRomaniaRate" />
+
+    <TextView
+        android:id="@+id/changePercentZlValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ronBarChart"
+        app:layout_constraintStart_toEndOf="@+id/changePercentZl"
+        app:layout_constraintTop_toBottomOf="@+id/changePercentRonValue"
+        app:layout_constraintVertical_bias="0.058" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/ronBarChart"

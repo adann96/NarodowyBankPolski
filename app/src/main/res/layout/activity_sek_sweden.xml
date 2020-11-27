@@ -6,14 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".Currencies.SekSwedenActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/sweden"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="79dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="32dp"
+        android:text="Korona\nSzwedzka"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/infoSekSymbol"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/infoSekSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Symbol: 1 SEK"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sekRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/sekRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Kurs: "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentSek"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infoSekSymbol" />
+
+    <TextView
+        android:id="@+id/changePercentSek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Zmiana: "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sekRate" />
+
+    <TextView
+        android:id="@+id/changePercentZl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="Zmiana (zł): "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sekBarChart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changePercentSek" />
+
     <TextView
         android:id="@+id/sekSwedenRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="82dp"
-        android:layout_marginTop="75dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentSek"
+        app:layout_constraintStart_toEndOf="@+id/sekRate"
+        app:layout_constraintTop_toBottomOf="@+id/infoSekSymbol" />
+
+    <TextView
+        android:id="@+id/changePercentSekValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
+        app:layout_constraintStart_toEndOf="@+id/changePercentSek"
+        app:layout_constraintTop_toBottomOf="@+id/sekSwedenRate" />
+
+    <TextView
+        android:id="@+id/changePercentZlValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sekBarChart"
+        app:layout_constraintStart_toEndOf="@+id/changePercentZl"
+        app:layout_constraintTop_toBottomOf="@+id/changePercentSekValue"
+        app:layout_constraintVertical_bias="0.058" />
+
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/sekBarChart"

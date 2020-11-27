@@ -23,9 +23,9 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="80dp"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/germany_flag_wave_icon_256"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent"
