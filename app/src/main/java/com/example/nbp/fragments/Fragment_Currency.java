@@ -9,9 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.nbp.CurrencyRatesActivity;
+import com.example.nbp.EurCurrencyRatesActivity;
 import com.example.nbp.R;
 import com.example.nbp.RankActivity;
+import com.example.nbp.WorldCurrencyRatesActivity;
 
 public class Fragment_Currency extends Fragment {
 
@@ -26,7 +27,7 @@ public class Fragment_Currency extends Fragment {
         eurRates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CurrencyRatesActivity.class);
+                Intent intent = new Intent(getActivity(), EurCurrencyRatesActivity.class);
                 startActivity(intent);
             }
         });
@@ -34,6 +35,13 @@ public class Fragment_Currency extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), RankActivity.class);
+                startActivity(intent);
+            }
+        });
+        globRates.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), WorldCurrencyRatesActivity.class);
                 startActivity(intent);
             }
         });
