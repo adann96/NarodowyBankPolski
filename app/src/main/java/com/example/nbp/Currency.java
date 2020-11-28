@@ -5,10 +5,6 @@ public class Currency {
     private String currencyJson;
     private float midJson;
 
-    public Currency() {
-        super();
-    }
-
     public Currency(String codeJson, String currencyJson, float midJson) {
         super();
         this.codeJson = codeJson;

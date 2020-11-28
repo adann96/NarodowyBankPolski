@@ -46,7 +46,7 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/audCurrency"
+                android:id="@+id/europeanRates"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_columnWeight="1"
@@ -66,10 +66,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:src="@drawable/me_time"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:src="@drawable/europe" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -86,6 +86,7 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/globalRates"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_columnWeight="1"
@@ -99,19 +100,19 @@
 
                 <LinearLayout
                     android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:src="@drawable/family_time"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:src="@drawable/world" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="92dp"
                         android:layout_height="wrap_content"
                         android:text="Kursy&#xA;Światowe"
                         android:textAlignment="center"
@@ -142,21 +143,21 @@
 
                 <LinearLayout
                     android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:src="@drawable/lovely_time"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:src="@drawable/rank" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="---"
+                        android:text="Ranking&#xA;Walut"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"

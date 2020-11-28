@@ -19,10 +19,11 @@ public class Fragment_Currency extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_currency, container, false);
 
-        CardView cardViewMe = view.findViewById(R.id.audCurrency);
+        CardView eurRates = view.findViewById(R.id.europeanRates);
         CardView currRank = view.findViewById(R.id.currRank);
+        CardView globRates = view.findViewById(R.id.globalRates);
 
-        cardViewMe.setOnClickListener(new View.OnClickListener() {
+        eurRates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), CurrencyRatesActivity.class);
