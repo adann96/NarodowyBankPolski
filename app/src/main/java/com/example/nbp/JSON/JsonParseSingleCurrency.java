@@ -67,6 +67,7 @@ public class JsonParseSingleCurrency {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
+
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
