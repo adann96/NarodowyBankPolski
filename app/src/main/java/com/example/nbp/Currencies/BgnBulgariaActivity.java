@@ -37,42 +37,13 @@ public class BgnBulgariaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bgn_bulgaria);
         mTextViewResult = findViewById(R.id.bgnBulgariaRate);
-
         requestQueue = Volley.newRequestQueue(this);
-        JsonParseSingleCurrency jsonParse = new JsonParseSingleCurrency("mid");
-        String param = jsonParse.getProperty();
 
-        jsonParsing(param);
+        JsonParseSingleCurrency.jsonParsing("https://api.nbp.pl/api/exchangerates/rates/A/BGN/?format=json","mid",this,requestQueue,mTextViewResult);
+
         barChartCurrRates();
     }
-
-    public void jsonParsing(final String param) {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading...");
-        progressDialog.show();
-
-        String url = "https://api.nbp.pl/api/exchangerates/rates/A/BGN/?format=json";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                progressDialog.dismiss();
-                try {
-                    JSONArray jsonArray = response.getJSONArray("rates");
-                    mTextViewResult.append(jsonArray.getJSONObject(0).get(param).toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
-        requestQueue.add(request);
-    }
-
+    
     private void barChartCurrRates() {
         String url = "https://api.nbp.pl/api/exchangerates/rates/A/BGN/last/5/?format=json";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
