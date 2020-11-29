@@ -31,10 +31,6 @@ public class NzdNewZelandActivity extends AppCompatActivity {
         mTextViewResult = findViewById(R.id.ndzNewZelandRate);
 
         requestQueue = Volley.newRequestQueue(this);
-        JsonParseSingleCurrency jsonParse = new JsonParseSingleCurrency("mid");
-        String param = jsonParse.getProperty();
-
-        jsonParsing(param);
     }
 
     public void jsonParsing(final String param) {
