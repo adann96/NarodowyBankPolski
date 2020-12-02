@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="6500dp"
+            android:layout_height="1100dp"
             android:orientation="vertical"
             android:weightSum="10">
 
@@ -77,7 +77,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/hufCurrency"
+                    android:id="@+id/usdCurrency"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_rowWeight="1"
@@ -124,7 +124,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/chfCurrency"
+                    android:id="@+id/hkdCurrency"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_rowWeight="1"
@@ -171,7 +171,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/gbpCurrency"
+                    android:id="@+id/audCurrency"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_rowWeight="1"
@@ -1003,6 +1003,8 @@
 
                 </androidx.cardview.widget.CardView>
 
+
+                <!--
                 <androidx.cardview.widget.CardView
                     android:id="@+id/mgaCurrency"
                     android:layout_width="0dp"
@@ -5997,7 +5999,7 @@
                             android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-
+                -->
             </GridLayout>
 
         </LinearLayout>
