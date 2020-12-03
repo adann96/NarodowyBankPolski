@@ -40,7 +40,6 @@ public class ChfSwitzerlandActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         JsonParseSingleCurrency.jsonParsing("https://api.nbp.pl/api/exchangerates/rates/A/CHF/?format=json","mid",this,requestQueue,mTextViewResult);
-        ;
         barChartCurrRates();
     }
 

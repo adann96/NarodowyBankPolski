@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Currencies.NzdNewZelandActivity">
+    tools:context=".Currencies.JpyJapanActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -12,48 +12,48 @@
         android:layout_height="52dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/new_zealand_wave"
+        android:background="@drawable/japan_wave"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="100dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="22dp"
-        android:text="Dolar\nNowozelandzki"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:text="Jen"
         android:textAlignment="center"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/infoUsdSymbol"
+        app:layout_constraintBottom_toTopOf="@+id/infoJpySymbol"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
-        android:id="@+id/infoUsdSymbol"
+        android:id="@+id/infoJpySymbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:text="Symbol: 1 NZD"
+        android:text="Symbol: 1 ISK"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/nzdCurrencyRate"
+        app:layout_constraintBottom_toTopOf="@+id/jpyDenmarkRate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/nzdCurrencyRate"
+        android:id="@+id/jpyDenmarkRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="Kurs: "
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentnzd"
+        app:layout_constraintBottom_toTopOf="@+id/changePercentJpy"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoUsdSymbol" />
+        app:layout_constraintTop_toBottomOf="@+id/infoJpySymbol" />
 
     <TextView
-        android:id="@+id/changePercentnzd"
+        android:id="@+id/changePercentJpy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -61,51 +61,51 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nzdCurrencyRate" />
+        app:layout_constraintTop_toBottomOf="@+id/jpyDenmarkRate" />
 
     <TextView
         android:id="@+id/changePercentZl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="8dp"
         android:text="Zmiana (zł): "
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/nzdBarChart"
+        app:layout_constraintBottom_toTopOf="@+id/jpyBarChart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentnzd" />
+        app:layout_constraintTop_toBottomOf="@+id/changePercentJpy" />
 
     <TextView
-        android:id="@+id/nzdNewZelandRate"
+        android:id="@+id/jpyJapanRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentnzd"
-        app:layout_constraintStart_toEndOf="@+id/nzdCurrencyRate"
-        app:layout_constraintTop_toBottomOf="@+id/infoUsdSymbol" />
+        app:layout_constraintBottom_toTopOf="@+id/changePercentJpy"
+        app:layout_constraintStart_toEndOf="@+id/jpyDenmarkRate"
+        app:layout_constraintTop_toBottomOf="@+id/infoJpySymbol" />
 
     <TextView
-        android:id="@+id/changePercentnzdValue"
+        android:id="@+id/changePercentJpyValue"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
-        app:layout_constraintStart_toEndOf="@+id/changePercentnzd"
-        app:layout_constraintTop_toBottomOf="@+id/nzdNewZelandRate" />
+        app:layout_constraintStart_toEndOf="@+id/changePercentJpy"
+        app:layout_constraintTop_toBottomOf="@+id/jpyJapanRate" />
 
     <TextView
         android:id="@+id/changePercentZlValue"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="8dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/nzdBarChart"
+        app:layout_constraintBottom_toTopOf="@+id/jpyBarChart"
         app:layout_constraintStart_toEndOf="@+id/changePercentZl"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentnzdValue"
+        app:layout_constraintTop_toBottomOf="@+id/changePercentJpyValue"
         app:layout_constraintVertical_bias="0.058" />
 
     <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/nzdBarChart"
+        android:id="@+id/jpyBarChart"
         android:layout_width="350dp"
         android:layout_height="500dp"
         android:layout_marginStart="32dp"

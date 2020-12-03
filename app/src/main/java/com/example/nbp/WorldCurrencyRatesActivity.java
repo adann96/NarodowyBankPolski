@@ -10,6 +10,9 @@ import android.view.View;
 import com.example.nbp.Currencies.AudAustraliaActivity;
 import com.example.nbp.Currencies.CadCanadaActivity;
 import com.example.nbp.Currencies.HkdHongkongActivity;
+import com.example.nbp.Currencies.JpyJapanActivity;
+import com.example.nbp.Currencies.NzdNewZelandActivity;
+import com.example.nbp.Currencies.SgdSingaporeActivity;
 import com.example.nbp.Currencies.ThbThailandActivity;
 import com.example.nbp.Currencies.UsdAmericaActivity;
 
@@ -29,9 +32,9 @@ public class WorldCurrencyRatesActivity extends AppCompatActivity {
         audCurrButton = findViewById(R.id.audCurrency);
         hkdCurrButton = findViewById(R.id.hkdCurrency);
         cadCurrButton = findViewById(R.id.cadCurrency);
-        //ndzCurrButton = findViewById(R.id.ndzCurrency);
-        //sgdCurrButton = findViewById(R.id.sgdCurrency);
-        //jpyCurrButton = findViewById(R.id.);*/
+        ndzCurrButton = findViewById(R.id.nzdCurrency);
+        sgdCurrButton = findViewById(R.id.sgdCurrency);
+        jpyCurrButton = findViewById(R.id.jpyCurrency);
                 /*
         ilsCurrButton = findViewById(R.id.);
         clpCurrButton = findViewById(R.id.);
@@ -92,7 +95,7 @@ public class WorldCurrencyRatesActivity extends AppCompatActivity {
                 Intent intent = new Intent(WorldCurrencyRatesActivity.this, CadCanadaActivity.class);
                 startActivity(intent);
             }
-        });/*
+        });
         ndzCurrButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,15 +109,15 @@ public class WorldCurrencyRatesActivity extends AppCompatActivity {
                 Intent intent = new Intent(WorldCurrencyRatesActivity.this, SgdSingaporeActivity.class);
                 startActivity(intent);
             }
-        });*/
-        /*
+        });
+
         jpyCurrButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WorldCurrencyRatesActivity.this, .class);
+                Intent intent = new Intent(WorldCurrencyRatesActivity.this, JpyJapanActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
         /*
         idrCurrButton.setOnClickListener(new View.OnClickListener() {
             @Override

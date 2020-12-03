@@ -82,7 +82,7 @@ public class EurEuropeActivity extends AppCompatActivity {
                     }
 
                     BarDataSet barDataSet = new BarDataSet(currRates,"Last 5 days rates");
-                    barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+                    barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
                     barDataSet.setValueTextColor(Color.BLACK);
                     barDataSet.setValueTextSize(15f);
 
