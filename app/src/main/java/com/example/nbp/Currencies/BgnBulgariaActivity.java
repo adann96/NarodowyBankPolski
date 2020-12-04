@@ -43,7 +43,7 @@ public class BgnBulgariaActivity extends AppCompatActivity {
 
         barChartCurrRates();
     }
-    
+
     private void barChartCurrRates() {
         String url = "https://api.nbp.pl/api/exchangerates/rates/A/BGN/last/5/?format=json";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {

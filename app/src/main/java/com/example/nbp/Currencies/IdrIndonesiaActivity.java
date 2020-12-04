@@ -2,7 +2,6 @@ package com.example.nbp.Currencies;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -28,30 +27,28 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class NzdNewZelandActivity extends AppCompatActivity {
+public class IdrIndonesiaActivity extends AppCompatActivity {
     private TextView mTextViewResult;
     private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nzd_new_zeland);
-        mTextViewResult = findViewById(R.id.nzdNewZelandRate);
+        setContentView(R.layout.activity_idr_indonesia);
+        mTextViewResult = findViewById(R.id.idrIndonesiaRateValue);
 
         requestQueue = Volley.newRequestQueue(this);
 
-        JsonParseSingleCurrency.jsonParsing("https://api.nbp.pl/api/exchangerates/rates/A/NZD/?format=json","mid",this,requestQueue,mTextViewResult);
-
+        JsonParseSingleCurrency.jsonParsing("https://api.nbp.pl/api/exchangerates/rates/A/IDR/?format=json","mid",this,requestQueue,mTextViewResult);
         barChartCurrRates();
     }
 
-
     private void barChartCurrRates() {
-        String url = "https://api.nbp.pl/api/exchangerates/rates/A/NZD/last/5/?format=json";
+        String url = "https://api.nbp.pl/api/exchangerates/rates/A/IDR/last/5/?format=json";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                BarChart barChart = findViewById(R.id.nzdBarChart);
+                BarChart barChart = findViewById(R.id.idrBarChart);
                 ArrayList<BarEntry> currRates = new ArrayList<>();
                 try {
                     int i;
@@ -61,9 +58,8 @@ public class NzdNewZelandActivity extends AppCompatActivity {
                         String rate = jsonArray.getJSONObject(i).get("mid").toString();
                         currRates.add(new BarEntry(i+1, Float.parseFloat(rate)));
                     }
-
                     BarDataSet barDataSet = new BarDataSet(currRates,"Last 5 days rates");
-                    barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+                    barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
                     barDataSet.setValueTextColor(Color.BLACK);
                     barDataSet.setValueTextSize(15f);
 
@@ -84,5 +80,4 @@ public class NzdNewZelandActivity extends AppCompatActivity {
         });
         requestQueue.add(request);
     }
-
 }
