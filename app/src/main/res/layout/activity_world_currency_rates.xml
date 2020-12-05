@@ -932,9 +932,9 @@
 
                         <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="65dp"
+                            android:layout_height="66dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/malaysia" />
+                            android:src="@drawable/sdr_wave" />
 
                         <TextView
                             android:layout_width="match_parent"

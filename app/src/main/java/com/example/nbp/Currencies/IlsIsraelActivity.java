@@ -27,24 +27,24 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class IslIsraelActivity extends AppCompatActivity {
+public class IlsIsraelActivity extends AppCompatActivity {
     private TextView mTextViewResult;
     private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_isl_israel);
+        setContentView(R.layout.activity_ils_israel);
         mTextViewResult = findViewById(R.id.islIsraelRateValue);
 
         requestQueue = Volley.newRequestQueue(this);
 
-        JsonParseSingleCurrency.jsonParsing("https://api.nbp.pl/api/exchangerates/rates/A/ISL/?format=json","mid",this,requestQueue,mTextViewResult);
+        JsonParseSingleCurrency.jsonParsing("https://api.nbp.pl/api/exchangerates/rates/A/ILS/?format=json","mid",this,requestQueue,mTextViewResult);
         barChartCurrRates();
     }
 
     private void barChartCurrRates() {
-        String url = "https://api.nbp.pl/api/exchangerates/rates/A/ISL/last/5/?format=json";
+        String url = "https://api.nbp.pl/api/exchangerates/rates/A/ILS/last/5/?format=json";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

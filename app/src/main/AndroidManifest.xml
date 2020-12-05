@@ -23,7 +23,7 @@
         <activity android:name=".Currencies.MxnMexicoActivity" />
         <activity android:name=".Currencies.PhpPhilipinesActivity" />
         <activity android:name=".Currencies.ClpChileActivity" />
-        <activity android:name=".Currencies.IslIsraelActivity" />
+        <activity android:name=".Currencies.IlsIsraelActivity" />
         <activity android:name=".Currencies.JpyJapanActivity" />
         <activity android:name=".WorldCurrencyRatesActivity" />
         <activity android:name=".RankActivity" />

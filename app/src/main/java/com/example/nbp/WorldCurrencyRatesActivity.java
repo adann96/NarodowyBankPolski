@@ -16,7 +16,7 @@ import com.example.nbp.Currencies.CnyChinaActivity;
 import com.example.nbp.Currencies.HkdHongkongActivity;
 import com.example.nbp.Currencies.IdrIndonesiaActivity;
 import com.example.nbp.Currencies.InrIndiaActivity;
-import com.example.nbp.Currencies.IslIsraelActivity;
+import com.example.nbp.Currencies.IlsIsraelActivity;
 import com.example.nbp.Currencies.JpyJapanActivity;
 import com.example.nbp.Currencies.KrwSouthKoreaActivity;
 import com.example.nbp.Currencies.MxnMexicoActivity;
@@ -164,7 +164,7 @@ public class WorldCurrencyRatesActivity extends AppCompatActivity {
         ilsCurrButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WorldCurrencyRatesActivity.this, IslIsraelActivity.class);
+                Intent intent = new Intent(WorldCurrencyRatesActivity.this, IlsIsraelActivity.class);
                 startActivity(intent);
             }
         });
