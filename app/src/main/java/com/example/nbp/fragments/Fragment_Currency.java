@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.nbp.Calculation;
 import com.example.nbp.EurCurrencyRatesActivity;
 import com.example.nbp.R;
 import com.example.nbp.RankActivity;
@@ -23,6 +24,7 @@ public class Fragment_Currency extends Fragment {
         CardView eurRates = view.findViewById(R.id.europeanRates);
         CardView currRank = view.findViewById(R.id.currRank);
         CardView globRates = view.findViewById(R.id.globalRates);
+        CardView currCalculator = view.findViewById(R.id.calculatorActivity);
 
         eurRates.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +44,13 @@ public class Fragment_Currency extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), WorldCurrencyRatesActivity.class);
+                startActivity(intent);
+            }
+        });
+        currCalculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Calculation.class);
                 startActivity(intent);
             }
         });

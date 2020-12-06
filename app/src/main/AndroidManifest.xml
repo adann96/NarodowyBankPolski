@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Currencies.AfnAfghanistanActivity"></activity>
+        <activity android:name=".Calculation"></activity>
+        <activity android:name=".Currencies.AfnAfghanistanActivity" />
         <activity android:name=".Currencies.XdrSpecialDrawingRights" />
         <activity android:name=".Currencies.CnyChinaActivity" />
         <activity android:name=".Currencies.KrwSouthKoreaActivity" />
