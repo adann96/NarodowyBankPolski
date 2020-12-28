@@ -20,12 +20,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.nbp.Currency;
-import com.example.nbp.RankActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,6 +32,33 @@ import java.util.Comparator;
 public class JsonParseSingleCurrency {
 
     public JsonParseSingleCurrency() {
+    }
+
+    public static void jsonParsingSpinner(String url, Context context, RequestQueue requestQueue, TextView textView) {
+        final ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "https://api.nbp.pl/api/exchangerates/rates/A/" + url + "/?format=json", null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                progressDialog.dismiss();
+                try {
+                    JSONArray jsonArray = response.getJSONArray("rates");
+                    textView.setText("");
+                    textView.append(jsonArray.getJSONObject(0).get("mid").toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                Toast.makeText(context.getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
+        requestQueue.add(request);
     }
 
     public static void jsonParsing(String url, String property, Context context, RequestQueue requestQueue, TextView textView) {

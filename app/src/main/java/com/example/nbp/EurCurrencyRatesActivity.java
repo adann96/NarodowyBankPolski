@@ -2,11 +2,8 @@ package com.example.nbp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-
 import com.example.nbp.Currencies.BgnBulgariaActivity;
 import com.example.nbp.Currencies.ChfSwitzerlandActivity;
 import com.example.nbp.Currencies.CzkCechRepublicActivity;
@@ -49,111 +46,66 @@ public class EurCurrencyRatesActivity extends AppCompatActivity {
         tryCurrButton = findViewById(R.id.tryCurrency);
         rubCurrButton = findViewById(R.id.rubCurrency);
 
-        eurCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, EurEuropeActivity.class);
-                startActivity(intent);
-            }
+        eurCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, EurEuropeActivity.class);
+            startActivity(intent);
         });
-        hufCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, HufHungaryActivity.class);
-                startActivity(intent);
-            }
+        hufCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, HufHungaryActivity.class);
+            startActivity(intent);
         });
-        chfCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, ChfSwitzerlandActivity.class);
-                startActivity(intent);
-            }
+        chfCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, ChfSwitzerlandActivity.class);
+            startActivity(intent);
         });
-        gbpCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, GbpGreatBritainActivity.class);
-                startActivity(intent);
-            }
+        gbpCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, GbpGreatBritainActivity.class);
+            startActivity(intent);
         });
 
-        uahCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, UahUkraineActivity.class);
-                startActivity(intent);
-            }
+        uahCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, UahUkraineActivity.class);
+            startActivity(intent);
         });
-        czkCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, CzkCechRepublicActivity.class);
-                startActivity(intent);
-            }
+        czkCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, CzkCechRepublicActivity.class);
+            startActivity(intent);
         });
-        dkkCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, DkkDenmarkActivity.class);
-                startActivity(intent);
-            }
+        dkkCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, DkkDenmarkActivity.class);
+            startActivity(intent);
         });
-        iskCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, IskIcelandActivity.class);
-                startActivity(intent);
-            }
+        iskCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, IskIcelandActivity.class);
+            startActivity(intent);
         });
-        nokCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, NokNorwayActivity.class);
-                startActivity(intent);
-            }
+        nokCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, NokNorwayActivity.class);
+            startActivity(intent);
         });
-        sekCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, SekSwedenActivity.class);
-                startActivity(intent);
-            }
+        sekCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, SekSwedenActivity.class);
+            startActivity(intent);
         });
-        hrkCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, HrkCroatiaActivity.class);
-                startActivity(intent);
-            }
+        hrkCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, HrkCroatiaActivity.class);
+            startActivity(intent);
         });
-        ronCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, RonRomaniaActivity.class);
-                startActivity(intent);
-            }
+        ronCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, RonRomaniaActivity.class);
+            startActivity(intent);
         });
-        bgnCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, BgnBulgariaActivity.class);
-                startActivity(intent);
-            }
+        bgnCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, BgnBulgariaActivity.class);
+            startActivity(intent);
         });
-        tryCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, TryTurkeyActivity.class);
-                startActivity(intent);
-            }
+        tryCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, TryTurkeyActivity.class);
+            startActivity(intent);
         });
-        rubCurrButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EurCurrencyRatesActivity.this, RubRussiaActivity.class);
-                startActivity(intent);
-            }
+        rubCurrButton.setOnClickListener(view -> {
+            Intent intent = new Intent(EurCurrencyRatesActivity.this, RubRussiaActivity.class);
+            startActivity(intent);
         });
     }
 }
