@@ -46,7 +46,7 @@ public class JsonParseSingleCurrency {
                 try {
                     JSONArray jsonArray = response.getJSONArray("rates");
                     textView.setText("");
-                    textView.append(jsonArray.getJSONObject(0).get("mid").toString());
+                    textView.append(1 + " " + url + " = " + jsonArray.getJSONObject(0).get("mid").toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
