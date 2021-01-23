@@ -29,9 +29,10 @@
                 android:layout_width="149dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="17dp"
                 android:background="#9C27B0"
+                app:layout_constraintBottom_toTopOf="@+id/currValue1"
                 app:layout_constraintEnd_toStartOf="@+id/spinner2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -41,9 +42,10 @@
                 android:layout_width="149dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="17dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
                 android:background="#00BCD4"
+                app:layout_constraintBottom_toTopOf="@+id/currValue2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/spinner1"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -51,28 +53,27 @@
             <TextView
                 android:id="@+id/currCalcResult"
                 android:layout_width="137dp"
-                android:layout_height="58dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="121dp"
-                android:layout_marginTop="32dp"
                 android:layout_marginEnd="121dp"
-                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+                app:layout_constraintTop_toBottomOf="@+id/calcButton" />
 
             <EditText
                 android:id="@+id/editTextNumberDecimal"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="85dp"
-                android:layout_marginTop="22dp"
-                android:layout_marginEnd="85dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginStart="139dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="140dp"
+                android:layout_marginBottom="8dp"
                 android:ems="10"
                 android:inputType="numberDecimal"
-                app:layout_constraintBottom_toTopOf="@+id/currCalcResult"
+                app:layout_constraintBottom_toTopOf="@+id/calcButton"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/currValue1" />
 
@@ -81,7 +82,7 @@
                 android:layout_width="149dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginBottom="22dp"
+                android:layout_marginBottom="16dp"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal"
                 app:layout_constraintStart_toStartOf="parent"
@@ -92,11 +93,25 @@
                 android:layout_width="149dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="44dp"
+                android:layout_marginBottom="16dp"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+
+            <Button
+                android:id="@+id/calcButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="144dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="147dp"
+                android:layout_marginBottom="8dp"
+                android:text="Przelicz"
+                app:layout_constraintBottom_toTopOf="@+id/currCalcResult"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
