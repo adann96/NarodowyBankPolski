@@ -1,8 +1,11 @@
 package com.example.nbp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,11 +18,25 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.nbp.Currencies.AfnAfghanistanActivity;
 import com.example.nbp.Currencies.EurEuropeActivity;
 import com.example.nbp.JSON.JsonParseSingleCurrency;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -38,6 +55,9 @@ public class Calculation extends AppCompatActivity implements AdapterView.OnItem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calc);
+
+        requestQueue = Volley.newRequestQueue(this);
+
         Spinner spin1 = (Spinner) findViewById(R.id.spinner1);
         Spinner spin2 = (Spinner) findViewById(R.id.spinner2);
         spin1.setOnItemSelectedListener(this);
@@ -64,11 +84,47 @@ public class Calculation extends AppCompatActivity implements AdapterView.OnItem
                     double currCalc = currVal / Double.parseDouble(mTextViewResult2.getText().toString().substring(8));
                     currCalcResult.setText("");
                     currCalcResult.append(String.valueOf(currCalc));
+
+                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "https://api.nbp.pl/api/exchangerates/rates/A/CHF/last/10/?format=json", null, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            LineChart calculationChart = findViewById(R.id.calculationChart);
+                            calculationChart.setTouchEnabled(true);
+                            calculationChart.setPinchZoom(true);
+                            ArrayList<Entry> arrayList1 = new ArrayList<>();
+                            ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+                            try {
+                                int i;
+                                JSONArray jsonArray = response.getJSONArray("rates");
+                                for (i = 0; i<10; i++) {
+                                    //String date = jsonArray.getJSONObject(i).get("effectiveDate").toString();
+                                    String rate = jsonArray.getJSONObject(i).get("mid").toString();
+                                    arrayList1.add(new Entry(i+1, Float.parseFloat(rate)));
+                                }
+
+                                LineDataSet lineDataSet = new LineDataSet(arrayList1,"Last Rates of");
+                                lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+                                lineDataSet.setDrawFilled(true);
+                                //lineDataSet.setFillColor(ContextCompat.getColor(getApplicationContext(), Color.blue(4)));
+                                dataSets.add(lineDataSet);
+
+                                LineData data = new LineData(dataSets);
+                                calculationChart.setData(data);
+                                calculationChart.invalidate();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    requestQueue.add(request);
                 }
             }
         });
-
-        requestQueue = Volley.newRequestQueue(this);
 
         ArrayAdapter aa1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,plnCurr);
         ArrayAdapter aa2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,country);

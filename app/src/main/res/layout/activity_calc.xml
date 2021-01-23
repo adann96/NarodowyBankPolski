@@ -26,12 +26,13 @@
 
             <Spinner
                 android:id="@+id/spinner1"
-                android:layout_width="149dp"
+                android:layout_width="100dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="17dp"
                 android:background="#9C27B0"
+                android:textAlignment="textEnd"
                 app:layout_constraintBottom_toTopOf="@+id/currValue1"
                 app:layout_constraintEnd_toStartOf="@+id/spinner2"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,16 +40,17 @@
 
             <Spinner
                 android:id="@+id/spinner2"
-                android:layout_width="149dp"
+                android:layout_width="100dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="17dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
                 android:background="#00BCD4"
                 app:layout_constraintBottom_toTopOf="@+id/currValue2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/spinner1"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:scrollbarSize="@android:dimen/dialog_min_width_major"/>
 
             <TextView
                 android:id="@+id/currCalcResult"
@@ -69,33 +71,30 @@
                 android:layout_marginStart="139dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="140dp"
-                android:layout_marginBottom="8dp"
                 android:ems="10"
                 android:inputType="numberDecimal"
                 app:layout_constraintBottom_toTopOf="@+id/calcButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/currValue1" />
+                app:layout_constraintTop_toBottomOf="@+id/currValue2" />
 
             <TextView
                 android:id="@+id/currValue1"
-                android:layout_width="149dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="8dp"
                 android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner1" />
 
             <TextView
                 android:id="@+id/currValue2"
-                android:layout_width="149dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="59dp"
                 android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 
@@ -104,14 +103,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="144dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="147dp"
-                android:layout_marginBottom="8dp"
                 android:text="Przelicz"
                 app:layout_constraintBottom_toTopOf="@+id/currCalcResult"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="69dp"
+                app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal"
+                app:layout_constraintEnd_toStartOf="@+id/spinner2"
+                app:layout_constraintHorizontal_bias="0.454"
+                app:layout_constraintStart_toEndOf="@+id/spinner1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -125,10 +137,24 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="#FFEB3B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/calculationChart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
