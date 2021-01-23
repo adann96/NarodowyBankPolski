@@ -24,6 +24,7 @@ public class Calculation extends AppCompatActivity implements AdapterView.OnItem
     String[] country2 = {"EUR","HUF","CHF","GBP","UAH","CZK","DKK","ISK","NOK","SEK","HRK","RON","BGN","TRY","RUB"};
     private TextView mTextViewResult1, mTextViewResult2;
     private RequestQueue requestQueue;
+    TextView currCalcResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class Calculation extends AppCompatActivity implements AdapterView.OnItem
 
         mTextViewResult1 = findViewById(R.id.currValue1);
         mTextViewResult2 = findViewById(R.id.currValue2);
+        currCalcResult = findViewById(R.id.currCalcResult);
         requestQueue = Volley.newRequestQueue(this);
 
         ArrayAdapter aa1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,country1);
@@ -50,6 +52,7 @@ public class Calculation extends AppCompatActivity implements AdapterView.OnItem
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if (parent.getId() == R.id.spinner1) {
             JsonParseSingleCurrency.jsonParsingSpinner(country1[position],this,requestQueue,mTextViewResult1);
+
         }
         else if (parent.getId() == R.id.spinner2) {
             JsonParseSingleCurrency.jsonParsingSpinner(country2[position],this,requestQueue,mTextViewResult2);
