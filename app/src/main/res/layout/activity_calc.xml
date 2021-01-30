@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="#CDDC39"
+        app:cardBackgroundColor="#00695F"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,12 +26,13 @@
 
             <Spinner
                 android:id="@+id/spinner1"
-                android:layout_width="100dp"
+                android:layout_width="70dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="17dp"
-                android:background="#9C27B0"
+                android:background="#FFFFFF"
+                android:radius="50dp"
                 android:textAlignment="textEnd"
                 app:layout_constraintBottom_toTopOf="@+id/currValue1"
                 app:layout_constraintEnd_toStartOf="@+id/spinner2"
@@ -40,27 +41,29 @@
 
             <Spinner
                 android:id="@+id/spinner2"
-                android:layout_width="100dp"
+                android:layout_width="70dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
-                android:background="#00BCD4"
+                android:background="#FFFFFF"
+                android:scrollbarSize="@android:dimen/dialog_min_width_major"
                 app:layout_constraintBottom_toTopOf="@+id/currValue2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/spinner1"
-                app:layout_constraintTop_toTopOf="parent"
-                android:scrollbarSize="@android:dimen/dialog_min_width_major"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/currCalcResult"
-                android:layout_width="137dp"
+                android:layout_width="160dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="121dp"
                 android:layout_marginEnd="121dp"
+                android:textColor="@android:color/white"
+                android:textSize="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.521"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/calcButton" />
 
@@ -73,6 +76,7 @@
                 android:layout_marginEnd="140dp"
                 android:ems="10"
                 android:inputType="numberDecimal"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/calcButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -80,21 +84,23 @@
 
             <TextView
                 android:id="@+id/currValue1"
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="59dp"
                 android:layout_marginTop="8dp"
                 android:textAlignment="center"
+                android:textColor="@android:color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner1" />
 
             <TextView
                 android:id="@+id/currValue2"
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="59dp"
                 android:textAlignment="center"
+                android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 

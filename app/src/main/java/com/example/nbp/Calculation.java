@@ -28,10 +28,15 @@ import com.example.nbp.Currencies.AfnAfghanistanActivity;
 import com.example.nbp.Currencies.EurEuropeActivity;
 import com.example.nbp.JSON.JsonParseSingleCurrency;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import org.json.JSONArray;
@@ -50,6 +55,8 @@ public class Calculation extends AppCompatActivity implements AdapterView.OnItem
     private RequestQueue requestQueue;
     TextView currCalcResult;
     private Button calcButton;
+    private String name;
+    private float calcValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,11 +88,9 @@ public class Calculation extends AppCompatActivity implements AdapterView.OnItem
                     Toast.makeText(getApplicationContext(),"Wartość nie może być mniejsza od zera!",Toast.LENGTH_LONG).show();
                 }
                 else  {
-                    double currCalc = currVal / Double.parseDouble(mTextViewResult2.getText().toString().substring(8));
-                    currCalcResult.setText("");
-                    currCalcResult.append(String.valueOf(currCalc));
+                    calcValue = Float.parseFloat(editTextNumberDecimal.getText().toString());
 
-                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "https://api.nbp.pl/api/exchangerates/rates/A/CHF/last/10/?format=json", null, new Response.Listener<JSONObject>() {
+                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "https://api.nbp.pl/api/exchangerates/rates/A/" + name + "/last/5/?format=json", null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             LineChart calculationChart = findViewById(R.id.calculationChart);
@@ -96,16 +101,18 @@ public class Calculation extends AppCompatActivity implements AdapterView.OnItem
                             try {
                                 int i;
                                 JSONArray jsonArray = response.getJSONArray("rates");
-                                for (i = 0; i<10; i++) {
-                                    //String date = jsonArray.getJSONObject(i).get("effectiveDate").toString();
+                                for (i = 0; i<5; i++) {
                                     String rate = jsonArray.getJSONObject(i).get("mid").toString();
-                                    arrayList1.add(new Entry(i+1, Float.parseFloat(rate)));
+                                    if (i == 4) {
+                                        currCalcResult.setText("");
+                                        currCalcResult.append(String.valueOf(calcValue / Float.parseFloat(rate)));
+                                    }
+                                    arrayList1.add(new Entry(i+1, (calcValue / Float.parseFloat(rate))));
                                 }
 
-                                LineDataSet lineDataSet = new LineDataSet(arrayList1,"Last Rates of");
+                                LineDataSet lineDataSet = new LineDataSet(arrayList1,"Ile " + name.toUpperCase() + " można kupić za " + calcValue + " zł (dziś - od prawej)");
                                 lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
                                 lineDataSet.setDrawFilled(true);
-                                //lineDataSet.setFillColor(ContextCompat.getColor(getApplicationContext(), Color.blue(4)));
                                 dataSets.add(lineDataSet);
 
                                 LineData data = new LineData(dataSets);
@@ -134,7 +141,6 @@ public class Calculation extends AppCompatActivity implements AdapterView.OnItem
         spin2.setAdapter(aa2);
     }
 
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if (parent.getId() == R.id.spinner1) {
@@ -142,6 +148,7 @@ public class Calculation extends AppCompatActivity implements AdapterView.OnItem
         }
         else if (parent.getId() == R.id.spinner2) {
             JsonParseSingleCurrency.jsonParsingSpinner(country[position],this,requestQueue,mTextViewResult2);
+            name = country[position].toLowerCase();
         }
         else {
             System.out.println("Something went wrong!");
