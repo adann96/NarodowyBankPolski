@@ -27,9 +27,12 @@ import com.android.volley.toolbox.Volley;
 import com.example.nbp.Currencies.AfnAfghanistanActivity;
 import com.example.nbp.Currencies.EurEuropeActivity;
 import com.example.nbp.JSON.JsonParseSingleCurrency;
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -38,6 +41,7 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -93,11 +97,8 @@ public class Calculation extends AppCompatActivity implements AdapterView.OnItem
                     JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "https://api.nbp.pl/api/exchangerates/rates/A/" + name + "/last/5/?format=json", null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            LineChart calculationChart = findViewById(R.id.calculationChart);
-                            calculationChart.setTouchEnabled(true);
-                            calculationChart.setPinchZoom(true);
-                            ArrayList<Entry> arrayList1 = new ArrayList<>();
-                            ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+                            BarChart calculationChart = findViewById(R.id.calculationChart);
+                            ArrayList<BarEntry> arrayList1 = new ArrayList<>();
                             try {
                                 int i;
                                 JSONArray jsonArray = response.getJSONArray("rates");
@@ -105,19 +106,25 @@ public class Calculation extends AppCompatActivity implements AdapterView.OnItem
                                     String rate = jsonArray.getJSONObject(i).get("mid").toString();
                                     if (i == 4) {
                                         currCalcResult.setText("");
-                                        currCalcResult.append(String.valueOf(calcValue / Float.parseFloat(rate)));
+                                        String currCalcResultSub = String.valueOf(calcValue / Float.parseFloat(rate));
+                                        String currCalcResultSubCut = currCalcResultSub.substring(0,currCalcResultSub.lastIndexOf(".")+3);
+                                        currCalcResult.append(currCalcResultSubCut + " " + name.toUpperCase());
                                     }
-                                    arrayList1.add(new Entry(i+1, (calcValue / Float.parseFloat(rate))));
+                                    arrayList1.add(new BarEntry(i+1, (calcValue / Float.parseFloat(rate))));
                                 }
 
-                                LineDataSet lineDataSet = new LineDataSet(arrayList1,"Ile " + name.toUpperCase() + " można kupić za " + calcValue + " zł (dziś - od prawej)");
-                                lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
-                                lineDataSet.setDrawFilled(true);
-                                dataSets.add(lineDataSet);
+                                BarDataSet barDataSet = new BarDataSet(arrayList1,"Ile " + name.toUpperCase() + " można kupić za " + calcValue + " zł.");
+                                barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+                                barDataSet.setValueTextColor(Color.BLACK);
+                                barDataSet.setValueTextSize(15f);
 
-                                LineData data = new LineData(dataSets);
-                                calculationChart.setData(data);
-                                calculationChart.invalidate();
+                                BarData barData = new BarData(barDataSet);
+
+                                calculationChart.setFitBars(true);
+                                calculationChart.setData(barData);
+                                calculationChart.animateY(1000);
+                                calculationChart.getDescription().setText("Brązowy pasek" + "/n" + "dzisiejsze notowanie");
+                                calculationChart.getDescription().setPosition(3f,3f);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
