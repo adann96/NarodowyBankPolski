@@ -6,4 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".GoldDatesActivity">
 
+    <ListView
+        android:id="@+id/goldRank"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="false"
+        android:cacheColorHint="#00695f" />
 </androidx.constraintlayout.widget.ConstraintLayout>
