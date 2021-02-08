@@ -17,12 +17,12 @@
         <RelativeLayout
             android:layout_weight="2"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/textGrid"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/gold_bars" />
 
@@ -64,12 +64,12 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/europe" />
+                        android:src="@drawable/high" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Kursy&#xA;Europejskie"
+                        android:text="Kurs&#xA;Złota"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -100,15 +100,15 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="93dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/world" />
+                        android:src="@drawable/planning" />
 
                     <TextView
                         android:layout_width="92dp"
                         android:layout_height="wrap_content"
-                        android:text="Kursy&#xA;Światowe"
+                        android:text="Zakres&#xA;Kursów"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -139,15 +139,15 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="120dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/rank" />
+                        android:src="@drawable/calculator" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Ranking&#xA;Walut"
+                        android:text="Kalkulator&#xA;Złota"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -177,15 +177,15 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:src="@drawable/team_time"
+                        android:layout_width="120dp"
+                        android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:src="@drawable/info" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="---"
+                        android:text="Info o&#xA;Aplikacji"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
