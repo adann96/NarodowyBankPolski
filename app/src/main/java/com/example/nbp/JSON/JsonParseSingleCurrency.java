@@ -21,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.nbp.Currency;
+import com.example.nbp.Gold;
 import com.example.nbp.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.BarEntry;
@@ -125,6 +126,57 @@ public class JsonParseSingleCurrency extends AppCompatActivity {
                     Collections.reverse(arrayList);
 
                     ArrayAdapter<Currency> arrayAdapter = new ArrayAdapter(context,android.R.layout.simple_list_item_1,arrayList);
+                    listView.setAdapter(arrayAdapter);
+                    progressDialog.dismiss();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                Toast.makeText(context.getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                Log.d("ERROR uuu", error.getMessage());
+            }
+        });
+        requestQueue.add(request);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(context,"Clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public static void jsonParsingGoldRanking(String url, ListView listView, Context context, RequestQueue requestQueue) {
+        final ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    ArrayList<Gold> arrayList = new ArrayList<>();
+                    JSONArray jsonArray = (JSONArray) response;
+                    Gold gold = null;
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        String date = jsonArray.getJSONObject(i).getString("data");
+                        Double price = Double.parseDouble(jsonArray.getJSONObject(i).getString("cena"));
+
+                        gold = new Gold(date,price);
+                        arrayList.add(gold);
+                    }
+
+                    Collections.sort(arrayList, Comparator.comparing(Gold::getDate));
+                    Collections.reverse(arrayList);
+
+                    ArrayAdapter<Gold> arrayAdapter = new ArrayAdapter(context,android.R.layout.simple_list_item_1,arrayList);
                     listView.setAdapter(arrayAdapter);
                     progressDialog.dismiss();
                 } catch (JSONException e) {

@@ -41,7 +41,7 @@ public class RankActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rank);
         requestQueue = Volley.newRequestQueue(this);
 
-        listView = (ListView) findViewById(R.id.currenciesRank);
+        listView = (ListView) findViewById(R.id.goldRank);
 
         JsonParseSingleCurrency.jsonParsingCurrRanking("https://api.nbp.pl/api/exchangerates/tables/A/?format=json",
                 listView, RankActivity.this, requestQueue);
