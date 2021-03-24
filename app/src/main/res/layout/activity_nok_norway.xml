@@ -48,61 +48,16 @@
         android:layout_marginStart="32dp"
         android:text="Kurs: "
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentNok"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoNokSymbol" />
-
-    <TextView
-        android:id="@+id/changePercentNok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="Zmiana: "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nokDenmarkRate" />
-
-    <TextView
-        android:id="@+id/changePercentZl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="8dp"
-        android:text="Zmiana (zł): "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/nokBarChart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentNok" />
 
     <TextView
         android:id="@+id/nokNorwayRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentNok"
         app:layout_constraintStart_toEndOf="@+id/nokDenmarkRate"
         app:layout_constraintTop_toBottomOf="@+id/infoNokSymbol" />
-
-    <TextView
-        android:id="@+id/changePercentNokValue"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
-        app:layout_constraintStart_toEndOf="@+id/changePercentNok"
-        app:layout_constraintTop_toBottomOf="@+id/nokNorwayRate" />
-
-    <TextView
-        android:id="@+id/changePercentZlValue"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/nokBarChart"
-        app:layout_constraintStart_toEndOf="@+id/changePercentZl"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentNokValue"
-        app:layout_constraintVertical_bias="0.058" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/nokBarChart"

@@ -11,13 +11,11 @@
         android:layout_width="350dp"
         android:layout_height="500dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentZl" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <ImageView
@@ -36,8 +34,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="57dp"
+        android:layout_marginBottom="8dp"
         android:text="Euro"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/infoEurSymbol"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -60,60 +60,15 @@
         android:layout_marginStart="32dp"
         android:text="Kurs: "
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentEur"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoEurSymbol" />
-
-    <TextView
-        android:id="@+id/changePercentEur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="Zmiana: "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eurRate" />
-
-    <TextView
-        android:id="@+id/changePercentZl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="14dp"
-        android:text="Zmiana (zł): "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/eurBarChart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentEur" />
 
     <TextView
         android:id="@+id/eurRateValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentEur"
         app:layout_constraintStart_toEndOf="@+id/eurRate"
         app:layout_constraintTop_toBottomOf="@+id/infoEurSymbol" />
-
-    <TextView
-        android:id="@+id/changePercentEurValue"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
-        app:layout_constraintStart_toEndOf="@+id/changePercentEur"
-        app:layout_constraintTop_toBottomOf="@+id/eurRateValue" />
-
-    <TextView
-        android:id="@+id/changePercentZlValue"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/eurBarChart"
-        app:layout_constraintStart_toEndOf="@+id/changePercentZl"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentEurValue"
-        app:layout_constraintVertical_bias="0.058" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

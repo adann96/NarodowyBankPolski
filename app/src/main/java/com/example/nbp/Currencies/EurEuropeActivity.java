@@ -38,8 +38,6 @@ public class EurEuropeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eur_europe);
         eurRate = findViewById(R.id.eurRateValue);
-        changePercentZl = findViewById(R.id.changePercentZlValue);
-        changePercentEur = findViewById(R.id.changePercentEurValue);
         requestQueue = Volley.newRequestQueue(this);
         
         JsonParseSingleCurrency.jsonParsing("https://api.nbp.pl/api/exchangerates/rates/A/EUR/?format=json","mid",this,requestQueue,eurRate);
@@ -67,19 +65,6 @@ public class EurEuropeActivity extends AppCompatActivity {
                     String down = new StringBuilder().appendCodePoint(0xFFEC).toString();
                     double differenceFloat = Math.abs((currRates.get(4).getY()) - (currRates.get(3).getY()));
                     double differencePercentage = ((1 - currRates.get(4).getY()) / (currRates.get(3).getY()));
-
-                    if (differenceFloat > 0 && differencePercentage > 0) {
-                        changePercentZl.append(up + " +" + differenceFloat);
-                        changePercentEur.append(up + " +" + differencePercentage + "%");
-                    }
-                    else if (differenceFloat == 0 && differencePercentage == 0) {
-                        changePercentZl.append("brak");
-                        changePercentEur.append("brak");
-                    }
-                    else {
-                        changePercentZl.append(down + " -" + differenceFloat);
-                        changePercentEur.append(down + " " + Math.round(differencePercentage * 10000)/10000.0 + "%");
-                    }
 
                     BarDataSet barDataSet = new BarDataSet(currRates,"Last 5 days rates");
                     barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);

@@ -48,61 +48,16 @@
         android:layout_marginStart="32dp"
         android:text="Kurs: "
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentMyr"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoMyrSymbol" />
-
-    <TextView
-        android:id="@+id/changePercentMyr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="Zmiana: "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myrMalesiaRate" />
-
-    <TextView
-        android:id="@+id/changePercentZl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="14dp"
-        android:text="Zmiana (zł): "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/myrBarChart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentMyr" />
 
     <TextView
         android:id="@+id/myrMalesiaRateValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentMyr"
         app:layout_constraintStart_toEndOf="@+id/myrMalesiaRate"
         app:layout_constraintTop_toBottomOf="@+id/infoMyrSymbol" />
-
-    <TextView
-        android:id="@+id/changePercentMyrValue"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
-        app:layout_constraintStart_toEndOf="@+id/changePercentMyr"
-        app:layout_constraintTop_toBottomOf="@+id/myrMalesiaRateValue" />
-
-    <TextView
-        android:id="@+id/changePercentZlValue"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/myrBarChart"
-        app:layout_constraintStart_toEndOf="@+id/changePercentZl"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentMyrValue"
-        app:layout_constraintVertical_bias="0.058" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/myrBarChart"

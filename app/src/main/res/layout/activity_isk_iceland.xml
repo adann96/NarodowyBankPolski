@@ -48,61 +48,16 @@
         android:layout_marginStart="32dp"
         android:text="Kurs: "
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentIsk"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoIskSymbol" />
-
-    <TextView
-        android:id="@+id/changePercentIsk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="Zmiana: "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IskDenmarkRate" />
-
-    <TextView
-        android:id="@+id/changePercentZl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="8dp"
-        android:text="Zmiana (zł): "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/iskBarChart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentIsk" />
 
     <TextView
         android:id="@+id/iskIcelandRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentIsk"
         app:layout_constraintStart_toEndOf="@+id/IskDenmarkRate"
         app:layout_constraintTop_toBottomOf="@+id/infoIskSymbol" />
-
-    <TextView
-        android:id="@+id/changePercentIskValue"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
-        app:layout_constraintStart_toEndOf="@+id/changePercentIsk"
-        app:layout_constraintTop_toBottomOf="@+id/iskIcelandRate" />
-
-    <TextView
-        android:id="@+id/changePercentZlValue"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/iskBarChart"
-        app:layout_constraintStart_toEndOf="@+id/changePercentZl"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentIskValue"
-        app:layout_constraintVertical_bias="0.058" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/iskBarChart"

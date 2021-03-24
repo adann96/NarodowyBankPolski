@@ -48,61 +48,16 @@
         android:layout_marginStart="32dp"
         android:text="Kurs: "
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentKrw"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoKrwSymbol" />
-
-    <TextView
-        android:id="@+id/changePercentKrw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="Zmiana: "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/krwSouthKoreaRate" />
-
-    <TextView
-        android:id="@+id/changePercentZl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="14dp"
-        android:text="Zmiana (zł): "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/krwBarChart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentKrw" />
 
     <TextView
         android:id="@+id/krwSouthKoreaRateValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentKrw"
         app:layout_constraintStart_toEndOf="@+id/krwSouthKoreaRate"
         app:layout_constraintTop_toBottomOf="@+id/infoKrwSymbol" />
-
-    <TextView
-        android:id="@+id/changePercentKrwValue"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/changePercentZl"
-        app:layout_constraintStart_toEndOf="@+id/changePercentKrw"
-        app:layout_constraintTop_toBottomOf="@+id/krwSouthKoreaRateValue" />
-
-    <TextView
-        android:id="@+id/changePercentZlValue"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/krwBarChart"
-        app:layout_constraintStart_toEndOf="@+id/changePercentZl"
-        app:layout_constraintTop_toBottomOf="@+id/changePercentKrwValue"
-        app:layout_constraintVertical_bias="0.058" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/krwBarChart"

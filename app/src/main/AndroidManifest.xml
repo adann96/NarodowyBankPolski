@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GoldRanking"></activity>
         <activity android:name=".Calculation" />
         <activity android:name=".Currencies.AfnAfghanistanActivity" />
         <activity android:name=".Currencies.XdrSpecialDrawingRights" />

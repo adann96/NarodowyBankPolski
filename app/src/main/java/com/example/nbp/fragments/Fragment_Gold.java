@@ -1,63 +1,34 @@
 package com.example.nbp.fragments;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
-import com.example.nbp.Calculation;
-import com.example.nbp.EurCurrencyRatesActivity;
-import com.example.nbp.GoldRanking;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+import com.example.nbp.JSON.JsonParseSingleCurrency;
 import com.example.nbp.R;
-import com.example.nbp.RankActivity;
-import com.example.nbp.WorldCurrencyRatesActivity;
 
 public class Fragment_Gold extends Fragment {
+    private RequestQueue requestQueue;
+    ListView listView;
+    Context context;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gold, container, false);
 
-        CardView datesOfRates = view.findViewById(R.id.datesOfRates);
-        /*
-        CardView currRank = view.findViewById(R.id.currRank);
-        CardView globRates = view.findViewById(R.id.globalRates);
-        CardView currCalculator = view.findViewById(R.id.calculatorActivity);*/
+        requestQueue = Volley.newRequestQueue(getContext());
+        listView = (ListView) view.findViewById(R.id.goldRank);
 
-        datesOfRates.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), GoldRanking.class);
-                startActivity(intent);
-            }
-        });
-        /*
-        currRank.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), RankActivity.class);
-                startActivity(intent);
-            }
-        });
-        globRates.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), WorldCurrencyRatesActivity.class);
-                startActivity(intent);
-            }
-        });
-        currCalculator.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Calculation.class);
-                startActivity(intent);
-            }
-        });*/
+        JsonParseSingleCurrency.jsonParsingGoldRanking("https://api.nbp.pl/api/cenyzlota/last/30/?format=json",
+                listView, getContext(), requestQueue);
 
         return view;
     }

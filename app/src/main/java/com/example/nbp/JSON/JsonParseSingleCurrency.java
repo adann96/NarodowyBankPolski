@@ -111,14 +111,13 @@ public class JsonParseSingleCurrency extends AppCompatActivity {
                     ArrayList<Currency> arrayList = new ArrayList<>();
                     JSONObject obj = response.getJSONObject(0);
                     JSONArray jsonArray = obj.getJSONArray("rates");
-                    Currency currency = null;
 
-                    for (int i = 0; i < 35; i++) {
+                    for (int i = 0; i < jsonArray.length() - 1; i++) {
                         String codeJson = jsonArray.getJSONObject(i).get("code").toString();
                         String currencyJson = jsonArray.getJSONObject(i).get("currency").toString();
                         float midJson = Float.parseFloat(jsonArray.getJSONObject(i).get("mid").toString());
 
-                        currency = new Currency(codeJson,currencyJson,midJson);
+                        Currency currency = new Currency(codeJson,currencyJson,midJson);
                         arrayList.add(currency);
                     }
 
@@ -163,13 +162,12 @@ public class JsonParseSingleCurrency extends AppCompatActivity {
                 try {
                     ArrayList<Gold> arrayList = new ArrayList<>();
                     JSONArray jsonArray = (JSONArray) response;
-                    Gold gold = null;
 
-                    for (int i = 0; i < jsonArray.length(); i++) {
+                    for (int i = 0; i < jsonArray.length() - 1; i++) {
                         String date = jsonArray.getJSONObject(i).getString("data");
                         Double price = Double.parseDouble(jsonArray.getJSONObject(i).getString("cena"));
 
-                        gold = new Gold(date,price);
+                        Gold gold = new Gold(date,price);
                         arrayList.add(gold);
                     }
 
