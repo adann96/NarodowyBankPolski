@@ -33,16 +33,16 @@ import java.util.Date;
 import java.util.Locale;
 
 public class RubRussiaActivity extends AppCompatActivity {
-    private TextView mTextViewResult;
+    private TextView mTextViewResult, dateStatusValue;
     private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rub_russia);
-        mTextViewResult = findViewById(R.id.rubRussiaRate);
+        mTextViewResult = findViewById(R.id.rubRateValue);
         requestQueue = Volley.newRequestQueue(this);
-
+        dateStatusValue = findViewById(R.id.dateStatusValue);
         JsonParseSingleCurrency.jsonParsing("https://api.nbp.pl/api/exchangerates/rates/A/rub/?format=json","mid",this,requestQueue,mTextViewResult);
 
         barChartCurrRates();
@@ -59,9 +59,12 @@ public class RubRussiaActivity extends AppCompatActivity {
                     int i;
                     JSONArray jsonArray = response.getJSONArray("rates");
                     for (i = 0; i<5; i++) {
-                        String date = jsonArray.getJSONObject(i).get("effectiveDate").toString();
                         String rate = jsonArray.getJSONObject(i).get("mid").toString();
                         currRates.add(new BarEntry(i, Float.parseFloat(rate)));
+                        if (i == 4) {
+                            String dateStatus = jsonArray.getJSONObject(i).get("effectiveDate").toString();
+                            dateStatusValue.setText(dateStatus);
+                        }
                     }
 
                     BarDataSet barDataSet = new BarDataSet(currRates,"Last 5 days rates");

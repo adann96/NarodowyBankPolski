@@ -28,15 +28,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class IdrIndonesiaActivity extends AppCompatActivity {
-    private TextView mTextViewResult;
+    private TextView mTextViewResult, dateStatusValue;
     private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_idr_indonesia);
-        mTextViewResult = findViewById(R.id.idrIndonesiaRateValue);
-
+        mTextViewResult = findViewById(R.id.idrRateValue);
+        dateStatusValue = findViewById(R.id.dateStatusValue);
         requestQueue = Volley.newRequestQueue(this);
 
         JsonParseSingleCurrency.jsonParsing("https://api.nbp.pl/api/exchangerates/rates/A/IDR/?format=json","mid",this,requestQueue,mTextViewResult);
@@ -57,6 +57,10 @@ public class IdrIndonesiaActivity extends AppCompatActivity {
                         //String date = jsonArray.getJSONObject(i).get("effectiveDate").toString();
                         String rate = jsonArray.getJSONObject(i).get("mid").toString();
                         currRates.add(new BarEntry(i+1, Float.parseFloat(rate)));
+                        if (i == 4) {
+                            String dateStatus = jsonArray.getJSONObject(i).get("effectiveDate").toString();
+                            dateStatusValue.setText(dateStatus);
+                        }
                     }
                     BarDataSet barDataSet = new BarDataSet(currRates,"Last 5 days rates");
                     barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);

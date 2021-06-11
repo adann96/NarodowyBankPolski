@@ -28,15 +28,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ClpChileActivity extends AppCompatActivity {
-    private TextView mTextViewResult;
+    private TextView mTextViewResult, dateStatusValue;
     private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clp_chile);
-        mTextViewResult = findViewById(R.id.clpChileRateValue);
-
+        mTextViewResult = findViewById(R.id.clpRateValue);
+        dateStatusValue = findViewById(R.id.dateStatusValue);
         requestQueue = Volley.newRequestQueue(this);
 
         JsonParseSingleCurrency.jsonParsing("https://api.nbp.pl/api/exchangerates/rates/A/CLP/?format=json","mid",this,requestQueue,mTextViewResult);
@@ -57,6 +57,10 @@ public class ClpChileActivity extends AppCompatActivity {
                         //String date = jsonArray.getJSONObject(i).get("effectiveDate").toString();
                         String rate = jsonArray.getJSONObject(i).get("mid").toString();
                         currRates.add(new BarEntry(i+1, Float.parseFloat(rate)));
+                        if (i == 4) {
+                            String dateStatus = jsonArray.getJSONObject(i).get("effectiveDate").toString();
+                            dateStatusValue.setText(dateStatus);
+                        }
                     }
                     BarDataSet barDataSet = new BarDataSet(currRates,"Last 5 days rates");
                     barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Currencies.EurEuropeActivity">
-
+    
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/eurBarChart"
         android:layout_width="350dp"
@@ -20,55 +20,94 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="80dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="168dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/germany_flag_wave_icon_256"
         app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="168dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="57dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="16dp"
         android:text="Euro"
+        android:textAlignment="center"
+        android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/infoEurSymbol"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/eurBarChart"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/infoEurSymbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:text="Symbol: 1 EUR"
+        android:layout_marginStart="30dp"
+        android:text="Symbol:"
+        app:layout_constraintBottom_toTopOf="@+id/infoEurSign"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateStatusValue" />
+
+    <TextView
+        android:id="@+id/infoEurSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="1 EUR"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/eurRate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/infoEurSymbol" />
 
     <TextView
         android:id="@+id/eurRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="30dp"
         android:text="Kurs: "
-        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/eurRateValue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoEurSymbol" />
+        app:layout_constraintTop_toBottomOf="@+id/infoEurSign" />
 
     <TextView
         android:id="@+id/eurRateValue"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/eurBarChart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eurRate" />
+
+    <TextView
+        android:id="@+id/dateStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="28dp"
+        android:text="Stan na:"
+        app:layout_constraintBottom_toTopOf="@+id/dateStatusValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/dateStatusValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/eurRate"
-        app:layout_constraintTop_toBottomOf="@+id/infoEurSymbol" />
+        app:layout_constraintBottom_toTopOf="@+id/infoEurSymbol"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateStatus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

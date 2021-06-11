@@ -29,15 +29,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class UahUkraineActivity extends AppCompatActivity {
-    private TextView mTextViewResult;
+    private TextView mTextViewResult, dateStatusValue;
     private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uah_ukraine);
-        mTextViewResult = findViewById(R.id.uahCurrencyRate);
+        mTextViewResult = findViewById(R.id.uahRateValue);
         requestQueue = Volley.newRequestQueue(this);
+        dateStatusValue = findViewById(R.id.dateStatusValue);
 
         JsonParseSingleCurrency.jsonParsing("https://api.nbp.pl/api/exchangerates/rates/A/UAH/?format=json","mid",this,requestQueue,mTextViewResult);
 
@@ -49,7 +50,7 @@ public class UahUkraineActivity extends AppCompatActivity {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                BarChart barChart = findViewById(R.id.uahBarChart);
+                BarChart barChart = findViewById(R.id.uahLineChart);
                 ArrayList<BarEntry> currRates = new ArrayList<>();
                 try {
                     int i;
@@ -58,6 +59,10 @@ public class UahUkraineActivity extends AppCompatActivity {
                         //String date = jsonArray.getJSONObject(i).get("effectiveDate").toString();
                         String rate = jsonArray.getJSONObject(i).get("mid").toString();
                         currRates.add(new BarEntry(i+1, Float.parseFloat(rate)));
+                        if (i == 4) {
+                            String dateStatus = jsonArray.getJSONObject(i).get("effectiveDate").toString();
+                            dateStatusValue.setText(dateStatus);
+                        }
                     }
                     BarDataSet barDataSet = new BarDataSet(currRates,"Last 5 days rates");
                     barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);

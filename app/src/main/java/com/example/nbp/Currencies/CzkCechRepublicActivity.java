@@ -29,15 +29,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class CzkCechRepublicActivity extends AppCompatActivity {
-    private TextView mTextViewResult;
+    private TextView mTextViewResult, dateStatusValue;
     private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_czk_cech_republic);
-        mTextViewResult = findViewById(R.id.czkCechRepublicRate);
+        mTextViewResult = findViewById(R.id.czkRateValue);
         requestQueue = Volley.newRequestQueue(this);
+        dateStatusValue = findViewById(R.id.dateStatusValue);
 
         JsonParseSingleCurrency.jsonParsing("https://api.nbp.pl/api/exchangerates/rates/A/CZK/?format=json","mid",this,requestQueue,mTextViewResult);
 
@@ -58,6 +59,10 @@ public class CzkCechRepublicActivity extends AppCompatActivity {
                         //String date = jsonArray.getJSONObject(i).get("effectiveDate").toString();
                         String rate = jsonArray.getJSONObject(i).get("mid").toString();
                         currRates.add(new BarEntry(i+1, Float.parseFloat(rate)));
+                        if (i == 4) {
+                            String dateStatus = jsonArray.getJSONObject(i).get("effectiveDate").toString();
+                            dateStatusValue.setText(dateStatus);
+                        }
                     }
                     BarDataSet barDataSet = new BarDataSet(currRates,"Last 5 days rates");
                     barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
